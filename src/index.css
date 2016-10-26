@@ -1,0 +1,124 @@
+body {
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+    width: 70%;
+}
+textarea, input {
+    outline: none;
+}
+a {
+    color: blue;
+    text-decoration: none;
+}
+a.active {
+    color: lightblue;
+}
+a:visited {
+    color: #333;
+}
+a.home {
+    color: #FFF;
+}
+button:focus {
+    outline: 0;
+}
+div.http404 {
+    color: #555;
+}
+div.center {
+    width: 100%;
+    text-align: center;
+}
+div.container {
+    position: relative;
+    top: 32px;
+    transform: translateY(32px);
+}
+div#nav {
+    display: block;
+    min-height: 3.3rem;
+}
+div.results {
+    color: #555;
+}
+div.results div{
+    padding: 0.25rem;
+    padding-top: 0.5rem;
+    margin-left: 3rem;
+}
+ul.nav {
+    list-style-type: none;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow: hidden;
+    background-color: #333;
+}
+li.nav {
+    display: inline;
+    float: left;
+    text-align: center;
+}
+li a {
+    display: block;
+    color: white;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+li a:hover {
+    background-color: #111;
+}
+div.form {
+    background-color: #EEE;
+    margin-left: 20%;
+    margin-right: 20%;
+    padding: 10px;
+    padding-bottom: 32px;
+}
+div.form-title {
+    color: #AAA;
+    margin: 0.2rem;
+    margin-bottom: 0.4rem;
+    font-size: 1.3rem;
+    font-weight: 600;
+}
+div.field {
+    float: center;
+    text-align: left;
+    margin-left: 15%;
+    margin-bottom: 0.4em;
+}
+div.field label {
+    display: block;
+    font-size: 1.1rem;
+    font-weight: 600;
+    padding-right: 0.2em;
+    color: #AAA;
+    width: 100%;
+}
+div.field input {
+    padding: 8px;
+    color: #555;
+    font-size: 0.9rem;
+    width: 80%;
+    border: 1px solid #444;
+}
+div.field input:focus {
+    border: 1px solid #222;
+    background-color: #fdfff9;
+}
+div.errors {
+    font-size: 1rem;
+    text-align: center;
+    padding: 9px;
+    display: block;
+    width: 80%;
+    color: #fdfff9;
+    background-color: orange;
+}
+div.field button {
+    display: inline-block;
+    background-color: lime;
+}
