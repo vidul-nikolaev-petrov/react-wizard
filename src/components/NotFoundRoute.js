@@ -9,6 +9,6 @@ const NotFoundRoute = () => (
         404 Not Found
     </div>
   </div>
-);
+)
 
 export default NotFoundRoute

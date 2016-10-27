@@ -4,7 +4,7 @@ import * as WizardActions from '../actions'
 import WizardPage from '../components/WizardPage'
 
 const mapDispatchToProps = (dispatch, ownProps) => ({
-    actions: bindActionCreators(WizardActions, dispatch), // @TODO: useless ?
+    actions: bindActionCreators(WizardActions, dispatch),
     uiPolicy: (form) => {
         const route = ownProps.children.props.route
         if (route.next) {

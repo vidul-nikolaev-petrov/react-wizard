@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 import { render } from 'react-dom'
 import { IndexRoute, Router, Route, hashHistory } from 'react-router'
 import { createStore, applyMiddleware, compose } from 'redux'
@@ -8,6 +8,7 @@ import createLogger from 'redux-logger'
 import { Provider } from 'react-redux'
 import reducer from './reducers'
 import App from './components/App'
+import Home from './components/Home'
 import WizPage1 from './components/WizPage1'
 import WizPage2 from './components/WizPage2'
 import WizPage3 from './components/WizPage3'
@@ -21,8 +22,7 @@ const isProduction = process.env.NODE_ENV === 'production'
 const rootElement = document.getElementById('root')
 const logger = createLogger()
 
-
-let enhancer;
+let enhancer
 
 if (isProduction) {
     enhancer = compose(
@@ -36,19 +36,20 @@ else {
         applyMiddleware(thunk),
         persistState(),
         DevTools.instrument()
-    );
+    )
 }
 
 const store = createStore(
     reducer,
     enhancer
-);
+)
 
 render(
     <Provider store={store}>
       <div className="Root">
         <Router history={hashHistory}>
           <Route path="/" component={App}>
+            <IndexRoute component={Home} />
             <Route path="wizard" component={Wizard}>
               <IndexRoute component={Wizard} />
               <Route path="1" component={WizPage1}
@@ -66,4 +67,4 @@ render(
       </div>
     </Provider>,
     rootElement
-);
+)

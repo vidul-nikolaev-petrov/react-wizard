@@ -10,12 +10,12 @@ class FormButtons extends React.Component {
     }
 
     constructor(props) {
-        super(props);
-        this.cancelWizard = this.cancelWizard.bind(this);
+        super(props)
+        this.cancelWizard = this.cancelWizard.bind(this)
     }
 
     cancelWizard() {
-        this.props.resetStore();
+        this.props.resetStore()
         setTimeout(() => {
             this.context.router.push('/')
             this.context.router.push('/wizard/1')
