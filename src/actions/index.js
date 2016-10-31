@@ -12,11 +12,11 @@ export const hideNavNext = () => ({ type: types.HIDE_NAV_NEXT })
 export const showNavPrev = () => ({ type: types.SHOW_NAV_PREV })
 export const hideNavPrev = () => ({ type: types.HIDE_NAV_PREV })
 
-export const setNavNext = (next) => ({
+export const setNavNext = next => ({
     next,
     type: types.SET_NAV_NEXT
 })
-export const setNavPrev = (prev) => ({
+export const setNavPrev = prev => ({
     prev,
     type: types.SET_NAV_PREV
 })

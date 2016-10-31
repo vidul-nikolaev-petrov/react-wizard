@@ -3,7 +3,7 @@ import { Link } from 'react-router'
 import './Buttons.css'
 
 class FormButtons extends React.Component {
-    static get contextTypes() {
+    static contextTypes() {
         return {
             router: PropTypes.object.isRequired
         };
