@@ -1,5 +1,5 @@
 import React from 'react'
-import { mount, shallow } from 'enzyme'
+import { shallow } from 'enzyme'
 import { expect } from 'chai'
 import Wizard from '../containers/Wizard'
 import store from '../helpers/tests'
@@ -8,23 +8,19 @@ import wizForms from '../reducers/wizForms'
 describe('<Wizard>', () => {
     const props = {store: store}
     const state = store.getState()
-    const wrapper = shallow(
-        <Wizard {...props} />
-    )
+    const getState = store.getState
+    const wrapper = shallow(<Wizard {...props} />)
+    const actions = wrapper.props().actions
 
     it('should contain the "wizForms" reducer', () => {
-        var page1 = Object.keys(state.wizForms.page1).sort(),
-          page2 = Object.keys(state.wizForms.page2).sort(),
-          page3 = Object.keys(state.wizForms.page3).sort()
         expect(typeof state.wizForms).to.equal('object')
-        expect(page1[0]).to.equal('firstName')
-        expect(page1[1]).to.equal('lastName')
+        expect(Object.keys(state.wizForms).length).to.equal(4)
     })
 
     it('check the "wizForms" reducer forms\' fields' , () => {
         var page1 = Object.keys(state.wizForms.page1).sort(),
-          page2 = Object.keys(state.wizForms.page2).sort(),
-          page3 = Object.keys(state.wizForms.page3).sort()
+          page2 = Object.keys(state.wizForms.page2),
+          page3 = Object.keys(state.wizForms.page3)
         expect(page1[0]).to.equal('firstName')
         expect(page1[1]).to.equal('lastName')
         expect(page2[0]).to.equal('email')
@@ -47,10 +43,8 @@ describe('<Wizard>', () => {
     })
 
     it('check "Wizard" actions\' functionality', () => {
-        var actions = wrapper.props().actions,
-          getState = store.getState,
-          next = '/wizard/3',
-          prev = '/wizard/1'
+        var next = '/wizard/3',
+            prev = '/wizard/1'
         actions.hideFormCancel() && expect(getState().visibilityFormCancel).to.equal(false)
         actions.showFormCancel() && expect(getState().visibilityFormCancel).to.equal(true)
         actions.hideFormSubmit() && expect(getState().visibilityFormSubmit).to.equal(false)
@@ -61,5 +55,19 @@ describe('<Wizard>', () => {
         actions.showNavPrev() && expect(getState().visibilityNavPrev).to.equal(true)
         actions.setNavNext(next) && expect(getState().navLinks.next).to.equal(next)
         actions.setNavPrev(prev) && expect(getState().navLinks.prev).to.equal(prev)
-    })    
-});
+    })
+
+    it('check "Wizard" action "reset store"', () => {
+        actions.hideFormCancel()
+        actions.showFormSubmit()
+        actions.showNavNext()
+        actions.showNavPrev()
+        actions.resetStore()
+        setTimeout(() => {
+            expect(getState().visibilityFormCancel).to.equal(true)
+            expect(getState().visibilityFormCancel).to.equal(false)
+            expect(getState().visibilityNavNext).to.equal(false)
+            expect(getState().visibilityNavPrev).to.equal(false)
+        })
+    })
+})
