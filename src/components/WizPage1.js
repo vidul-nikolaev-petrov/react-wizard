@@ -2,7 +2,7 @@ import React from 'react'
 import { connect } from 'react-redux'
 import { Form, Errors, Field, actions } from 'react-redux-form'
 
-const FormModel = 'wizForms.page1'
+export const FormModel = 'wizForms.page1'
 
 class WizPage1 extends React.Component {
     componentDidMount() {
