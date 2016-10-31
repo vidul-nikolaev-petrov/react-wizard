@@ -17,7 +17,6 @@ describe('<WizPage1>', () => {
         uiPolicyNavNext: wrapper.props().uiPolicyNavNext
     }
     wrapper = shallow(<WizPage1 {...props} />)
-    wrapper.ownProps = {children: {props: {route: props.route}}}
                 
     it('should contain the HTML form props', () => {
         expect(typeof wrapper.props().form).to.equal('object')
@@ -46,6 +45,7 @@ describe('<WizPage1>', () => {
         wrapper.props().uiPolicyNavNext({valid: true})
         expect(getState().visibilityNavNext).to.equal(true)
         expect(getState().visibilityFormSubmit).to.equal(false)
+        wrapper.props().actions.showNavNext()
         wrapper.props().uiPolicyNavNext({valid: false})
         expect(getState().visibilityNavNext).to.equal(false)
         expect(getState().visibilityFormSubmit).to.equal(false)
