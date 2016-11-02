@@ -13,8 +13,7 @@ describe('<WizPage2>', () => {
     var wrapper = shallow(<Wizard {...props} />)
     props = {...props,
         actions: wrapper.props().actions,
-        uiPolicy: wrapper.props().uiPolicy,
-        uiPolicyNavNext: wrapper.props().uiPolicyNavNext
+        uiPolicy: wrapper.props().uiPolicy
     }
     wrapper = shallow(<WizPage2 {...props} />)
                 
@@ -44,4 +43,4 @@ describe('<WizPage2>', () => {
         expect(getState().visibilityNavPrev).to.equal(true)
         expect(getState().visibilityNavNext).to.equal(false)
     })
-});
+})
